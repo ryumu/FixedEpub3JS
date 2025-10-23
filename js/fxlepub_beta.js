@@ -313,7 +313,7 @@ function handleFileSelect(evt) {
                 // Render thumbnail.
                 var span = document.createElement('span');
                 span.innerHTML = ['<img class="thumb" src="', e.target.result,
-                    '" title="', theFile.name, '" onclick="pop(this) "/>'].join('');
+                    '" title="', theFile.name, '" />'].join('');
                 document.getElementById('list').insertBefore(span, null);
                 //                imgFO.push({ file_name: theFile.name, data: e.target.result, type: theFile.type });
                 addselect();
@@ -377,29 +377,7 @@ function addselect() {
         $("*[name=selectNav]").append("<option>" + data.files[j].file_name + "</option>");
     }
 };
-//selectの削減
-document.addEventListener("DOMContentLoaded", function () {
-    document.getElementById("removeselect").addEventListener("click", removeselect);
-});
-function removeselect() {
-    if ($("*[name=formNav]").length > 1) {
-        $("*[name=formNav]:last").remove()
-    }
-};
 
-
-//目次の追加
-document.addEventListener("DOMContentLoaded", function () {
-    document.getElementById("addmenu").addEventListener("click", addmenu);
-});
-function addmenu() {
-    var menu = document.getElementsByTagName("form")[1];
-    var cmenu = menu.cloneNode(true);
-    cmenu.childNodes[1].childNodes[3].id = document.getElementsByTagName("form").length + 1;
-
-    //par.insertBefore(cmenu,menu.nextSibling);
-    document.getElementById("menu-group").appendChild(cmenu);
-}
 
 document.addEventListener("DOMContentLoaded", function () {
     document.getElementById("demo").addEventListener("click", function () {
